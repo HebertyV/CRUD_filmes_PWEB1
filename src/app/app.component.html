@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-card class="mat-card-simples">
+    <mat-card-header>
+      <mat-card-title>Novo Filme</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Título</mat-label>
+        <input matInput [(ngModel)]="novoFilme.titulo" placeholder="Digite o título">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Data de Lançamento</mat-label>
+        <input matInput [(ngModel)]="novoFilme.dataLancamento" placeholder="Digite a data de lançamento">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gênero</mat-label>
+        <input matInput [(ngModel)]="novoFilme.genero" placeholder="Digite o gênero">
+      </mat-form-field>
+
+      <button mat-raised-button mat-icon-button color="primary" (click)="inserirFilme()">
+        <mat-icon>+</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <br>
+
+  <mat-card *ngFor="let filme of filmes" class="mat-card-simples">
+    <mat-card-header>
+      <mat-card-title>{{filme.titulo}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{filme.dataLancamento}}<br>
+      {{filme.genero}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button (click)="editarFilme(filme)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="removerFilme(filme)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
